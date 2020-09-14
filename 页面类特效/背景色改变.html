@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 使用方法一 -->
+    <input id="input1" type="text">
+    <input id='button1' type="button" value="Button1">
+    <div id="box1" style="width: 100px; height: 100px; background-color: black;">
+    </div>
+
+    <!-- 使用方法二 -->
+    <input id="input2" type="text">
+    <input id='button2' type="button" value="Button2">
+    <br>
+    <canvas id="box2" width="100" height="100" style="background-color: black;"></canvas>
+
+    <script>
+        // 方法一
+        const input1 = document.querySelector('#input1');
+        const button1 = document.querySelector('#button1');
+        const box1 = document.querySelector('#box1');
+        console.log(box1);
+        button1.onclick = function() {
+            if(input1.value === '') {
+                alert('请输入你喜欢的颜色！');
+            } else {
+                box1.style.backgroundColor = input1.value;
+            }
+        }
+
+        // 方法二
+        const input2 = document.querySelector('#input2');
+        const button2 = document.querySelector('#button2');
+        const box2 = document.querySelector('#box2');
+        button2.onclick = function() {
+            if(input2.value === '') {
+                alert('请输入你喜欢的颜色！');
+            } else {
+                const ctx = box2.getContext('2d');
+                ctx.fillStyle = input2.value;
+                ctx.fillRect(0,0,100,100);
+            }
+        }
+    </script>
+</body>
+</html>
